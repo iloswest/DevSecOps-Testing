@@ -1,0 +1,19 @@
+# Временные файлы
+*.tmp
+*.log
+*~
+.DS_Store
+Thumbs.db
+
+# Архивы
+*.zip
+*.tar
+*.tar.gz
+*.rar
+*.7z
+
+# Секреты
+.env
+*.key
+*.pem
+secrets/

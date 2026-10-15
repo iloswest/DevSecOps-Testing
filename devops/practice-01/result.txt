@@ -1,0 +1,19 @@
+ФИО: Malantse
+Группа: ИТ-9.24.3-ДН
+
+Задание 7 — выполненные команды:
+
+1 Запуск второго контейнера my-copy:
+  docker run -d --name my-copy -p 127.0.0.1:8082:80 student-site:v2
+
+2 Остановка my-site:
+  docker stop my-site
+
+3 Проверка статусов:
+  docker ps -a
+
+4 Повторный запуск my-site:
+  docker start my-site
+
+Результат: my-site и my-copy используют student-site:v2,
+открываются по разным адресам (8081 и 8082) и останавливаются независимо.
