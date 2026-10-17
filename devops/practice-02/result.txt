@@ -1,0 +1,22 @@
+Имя: Маланцев
+Группа: ИТ-9.24.3-ДН
+
+Адрес записи: http://localhost:8090/?p=10
+
+Задание 7 — команды остановки и запуска базы:
+  docker compose stop db
+  docker compose start db
+
+ID контейнеров до пересоздания (containers-before.txt):
+  db:        8ae86f5e8b223c0612903880bc494cb404fce0dd8f0aa06546a7ca66ad9d3b78
+  wordpress: 55ab65f6b6d2e601fc56609bf22e964a5382ca431f2df86ebf037673a09feac9
+
+ID контейнеров после пересоздания (containers-after.txt):
+  db:        b7fccfb08b782ad112229137ba5f4df1e24b226e06e9fd716fda83192eb9b723
+  wordpress: e47f73ccb7baac05e68fd63bb26a65be598fe1d7a8c1f77267d1bcb6d3bd82f3
+
+Результат проверки сохранности записи:
+  После docker compose down и docker compose up -d запись
+  "Моя практика Docker 2" сохранилась. Повторная установка
+  WordPress не потребовалась. Тома docker-lesson-02_db_data
+  и docker-lesson-02_wp_data сохранили данные.
