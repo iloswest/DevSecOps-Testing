@@ -1,0 +1,18 @@
+Имя: Маланцев
+Группа: ИТ-9.24.3-ДН
+
+Уровень 1: secure-api:v1 — 420 МБ, /health и /hash работают
+Уровень 2: secure-api:v2 — 59 МБ (< 150 МБ), gcc/build-essential отсутствуют
+Уровень 3: secure-api:v3 — 64 МБ, non-root appuser, read-only, healthcheck, exec CMD
+
+Проверки уровня 3:
+- docker inspect Health.Status → "healthy"
+- curl /health → {"status":"ok"}
+- curl /hash?password=test3 → {"hash":"$2b$12$..."}
+- /var/log/app/app_logs.txt → "Generated hash for a user"
+- whoami → appuser
+- /proc/1/cmdline → uvicorn main:app --host 0.0.0.0 --port 8080
+- time docker stop → 0.46s (graceful SIGTERM)
+
+Команда запуска:
+docker run -d --name secure-api -p 8080:8080 --read-only --cap-drop ALL --security-opt no-new-privileges secure-api:v3
